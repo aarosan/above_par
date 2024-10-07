@@ -5,7 +5,6 @@ const connection = require('../config/connection'); // Import your existing conn
 
 const seedDB = async () => {
     await User.deleteMany(); // Clear existing users
-    await Meal.deleteMany(); // Clear existing meals
   
     const saltRounds = 10; // Adjust this value for security
   
