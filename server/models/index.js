@@ -1,6 +1,3 @@
-// This index.js is the entrance point for the models directory
-// All of the models are imported and then exported all together
+const User = require('./User');
 
-const Test = require('./test');
-
-module.exports = { Test };
+module.exports = { User };
