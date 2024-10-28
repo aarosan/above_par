@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-    name: {
+    firstName: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    lastName: {
         type: String,
         required: true,
         trim: true,
@@ -18,7 +23,19 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minlength: 5,
-    }
+    },
+    courses: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Course'
+    }],
+    games: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Game'
+    }],
+    players: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Player'
+    }],
 });
 
 userSchema.pre('save', async function (next) {
