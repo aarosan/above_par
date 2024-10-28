@@ -38,9 +38,9 @@ app.use(routes);
 
 // Database connector listener and server initialization
 db.once('open', () => {
-  console.log('MongoDB connection established successfully');
+  console.log('\nMongoDB connection established successfully');
   app.listen(port, () => {
-    console.log(`API server for running at http://localhost:${apiUrl}!`);
+    console.log(`\nAPI server for running at ${apiUrl} !\n`);
   });
 });
 
