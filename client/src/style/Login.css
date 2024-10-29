@@ -1,0 +1,82 @@
+.login-form-container, .sign-up-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.login-form-container-information, .sign-up-form-container-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.text-input {
+    width: 50%;
+    height: 20px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid rgb(0, 135, 5, .26);
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 16px;
+}
+
+input {
+    color: rgb(0, 0, 0, .7);
+}
+
+.play-golf {
+    border-radius: 25px;
+    border: 1px solid rgb(116, 0, 135, .3);
+    background-color: transparent;
+    padding: 10px 25px;
+    font-size: 16px;;
+}
+
+.play-golf:hover {
+    background-color: #E2BEF3;
+    color: white;
+    cursor: pointer;
+}
+
+.play-golf:active {
+    background-color: #7302A8;
+    color: white;
+    cursor: pointer;
+}
+
+.login-return {
+    border-radius: 25px;
+    border: 1px solid rgba(0, 58, 135, 0.3);
+    background-color: transparent;
+    padding: 5px 10px;
+    font-size: 16px;;
+}
+
+.login-return:hover {
+    background-color: #AFF0FF;
+    cursor: pointer;
+}
+
+.login-return:active {
+    background-color: #0087A5;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-link {
+    color: rgb(0, 0, 0, .7);
+    text-decoration: underline;
+}
+
+.signup-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
