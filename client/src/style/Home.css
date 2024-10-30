@@ -1,0 +1,76 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.home-title {
+    font-size: 36px;
+    color: #008705;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.course-button {
+    border-radius: 25px;
+    border: 1px solid rgb(0, 135, 5, .3);
+    background-color: transparent;
+    padding: 10px 25px;
+    font-size: 16px;
+}
+
+.course-card {
+    padding: 10px;
+}
+
+.course-name {
+    background-color: transparent;
+    font-size: 16px;
+}
+
+.divider {
+    width: 20%;
+    border-bottom: 10px solid rgb(0, 135, 5, .3);
+    border-radius: 25px;
+    margin: 10px 0;
+}
+
+.home-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-course-button, .view-stats-button, .sign-out-button {
+    border-radius: 25px;
+    border: 1px solid rgb(0, 135, 5, .3);
+    background-color: transparent;
+    padding: 10px 25px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.add-course-button:hover, .view-stats-button:hover, .sign-out-button:hover {
+    border: 1px solid rgb(0, 135, 5, .3);
+    background-color: #008705;
+    color: white;
+    cursor: pointer;
+}
+
+.add-course-button:active, .view-stats-button:active, .sign-out-button:active {
+    background-color: rgba(184, 255, 186, 0.3);
+    color: black;
+    cursor: pointer;
+}

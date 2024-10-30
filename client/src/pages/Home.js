@@ -1,32 +1,64 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import colors from '../utils/colors';
 import { isTokenExpired } from '../utils/jwtUtils';
+import { useCourses } from '../hooks/useCourses';
+import CourseButton from '../components/CourseButton';
 
-// const apiUrl = process.env.REACT_APP_HEROKU_URL || 'http://localhost:5000';
+const apiUrl = process.env.REACT_APP_HEROKU_URL || 'http://localhost:5000';
 
 const Home = ({ signOut }) => {
+    const { courses, error, loading, setCourses } = useCourses();
+    const [game, setGame] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if (isTokenExpired(token)) {
+        if (!token || isTokenExpired(token)) {
+            signOut();
             navigate('/login');
-        } 
-    }, [navigate]);
+            return;
+        }   
+    }, [navigate, signOut]);
+        
+    const addCourse = () => navigate('/course');
+    const viewStats = () => navigate('/stats');
+    const gameSetup = (course) => {
+        setGame(course);
+        navigate('/setup', { state: { course } });
+    };
 
     return (
         <div className="home-container">
-            <div className="header-container">
-                <div className="header-actions">
-                    <button onClick={signOut} className="sign-out-button">
-                        Sign Out
-                    </button>
-                </div>
+            <div className="home-header">
+                <h1 className="home-title">Select Course</h1>
             </div>
-
-            <div className="home-content">
-                <h1>Welcome to the Home Page</h1>
+            <div className="course-list">
+                {courses.map((course, index) => (
+                    <div key={`${course.id}-${index}`} className="course-card">
+                        <CourseButton 
+                            onClick={() => gameSetup(course)}
+                            color={colors[course.color]}
+                        >
+                            <p className="course-name">
+                                {course.courseName}
+                            </p>
+                        </CourseButton>
+                    </div>
+                ))}
+            </div>
+            <div className="divider"></div> 
+            <div className="home-footer">
+                <button onClick={addCourse} className="add-course-button">
+                    Add Course +
+                </button>
+                <button onClick={viewStats} className="view-stats-button">
+                    View Stats
+                </button>
+                <button onClick={signOut} className="sign-out-button">
+                    Sign Out
+                </button>
             </div>
         </div>
     )
