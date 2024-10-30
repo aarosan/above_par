@@ -23,6 +23,10 @@ const Login = ({ setToken }) => {
 
         if (response.ok) {
             const data = await response.json();
+            console.log(data)
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('userId', data.userId);
+            console.log('User ID:', data.userId);
             signIn(data.token);
             navigate('/');
         } else {
