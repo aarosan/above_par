@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
+import Course from './pages/Course';
+import Stats from './pages/Stats';
+import Setup from './pages/Setup';
+
+import './App.css';
 
 const AuthContext = createContext();
 
@@ -46,6 +51,10 @@ const App = () => {
         path="/"
         element={token ? <Home signOut={signOut} /> : <Navigate to="/login" />}
       />    
+      <Route path="/course" element={<Course />} />
+      <Route path="/stats" element={<Stats />} />
+      <Route path="/setup" element={<Setup />} />
+
     </Routes>
   );
 };
