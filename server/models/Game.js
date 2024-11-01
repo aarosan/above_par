@@ -5,7 +5,6 @@ const gameSchema = new Schema({
   courseName: {
     type: String,
     required: true,
-    unique: true,
     trim: true
   },
   color: {

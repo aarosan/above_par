@@ -112,6 +112,7 @@ describe('Test the authenticated course and game routes', () => {
       await User.deleteMany({});
       await Game.deleteMany({});
       await Course.deleteMany({});
+      await Player.deleteMany({});
     });
   
     afterAll(async () => {
@@ -140,9 +141,34 @@ describe('Test the authenticated course and game routes', () => {
       expect(res.body).toHaveProperty('token');
       token = res.body.token;
     });
-  
-    console.log('Token Test:', token);
-  
+
+    it('should add players to the user', async () => {
+        const playerData = { name: 'Richard', user: userId };
+
+        const res = await request(app)
+          .post('/api/users/players')
+          .set('Authorization', `Bearer ${token}`)
+          .send(playerData);
+
+        expect(res.statusCode).toBe(201);
+        expect(res.body).toHaveProperty('name', playerData.name);
+      }
+    );
+
+    it('should get players for the user', async () => {
+        const player1 = await new Player({ name: 'Bob', user: userId }).save();
+        const player2 = await new Player({ name: 'Eric', user:  userId }).save();
+
+        const res = await request(app)
+          .get('/api/users/players')
+          .set('Authorization', `Bearer ${token}`);
+          
+        expect(res.statusCode).toBe(200);
+        expect(Array.isArray(res.body)).toBe(true);
+        expect(res.body.length).toBe(2);
+      }
+    );
+      
     it('should create a new game with JWT token', async () => {
       const course = await new Course({
         courseName: 'Test Course',
