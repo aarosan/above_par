@@ -10,7 +10,7 @@ const apiUrl = process.env.REACT_APP_HEROKU_URL || 'http://localhost:5000';
 
 const Home = ({ signOut }) => {
     const { courses, error, loading, setCourses } = useCourses();
-    const [game, setGame] = useState(null);
+    const [course, setCourse] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const Home = ({ signOut }) => {
     const addCourse = () => navigate('/course');
     const viewStats = () => navigate('/stats');
     const gameSetup = (course) => {
-        setGame(course);
+        setCourse(course);
         navigate('/setup', { state: { course } });
     };
 

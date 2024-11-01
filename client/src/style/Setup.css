@@ -1,0 +1,109 @@
+.setup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+.setup-title {
+    font-size: 36px;
+    color: #008705;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.setup-course {
+    font-size: 24px;
+    padding: 10px;
+}
+
+.setup-back {
+    padding-bottom: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.setup-add-player {
+    border-radius: 25px;
+    border: 1px solid rgba(0, 135, 5, 0.3);
+    background-color: transparent;
+    padding: 10px 25px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.player-list, .selected-players{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+.player-names {
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.add-player-button {
+    border-radius: 25px;
+    border: 1px solid rgba(0, 135, 5, 0.3);
+    background-color: transparent;
+    padding: 10px 25px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.add-player-button:hover {
+    border: 1px solid rgba(0, 135, 5, 0.3);
+    background-color: #008705;
+    color: white;
+    cursor: pointer;
+}
+
+.add-player-button:active {
+    border: 1px solid rgba(0, 135, 5, 0.3);
+    background-color: rgba(0, 135, 5, 0.3);
+    color: black;
+    cursor: pointer;
+}
+
+.remove-player-button {
+    border-radius: 25px;
+    border: 1px solid rgba(0, 135, 5, 0.3);
+    background-color: transparent;
+    padding: 10px 25px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.play-golf-button {
+    border-radius: 25px;
+    border: 1px solid rgba(0, 135, 5, 0.3);
+    background-color: transparent;
+    padding: 10px 25px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.play-golf-button:hover {
+    border: 1px solid rgba(0, 135, 5, 0.3);
+    background-color: #008705;
+    color: white;
+    cursor: pointer;
+}
+
+.play-golf-button:active {
+    border: 1px solid rgba(0, 135, 5, 0.3);
+    background-color: rgba(0, 135, 5, 0.3);
+    color: black;
+    cursor: pointer;
+}
