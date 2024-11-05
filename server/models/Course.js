@@ -16,7 +16,8 @@ const courseSchema = new Schema({
   courseName: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    // unique: true
   },
   numberOfHoles: {
     type: Number,

@@ -4,7 +4,10 @@ const User = require('../models/User');
 const getCourses = async (req, res) => {
   console.log('getCourses function invoked');
   try {
-    const courses = await Course.find({ createdBy: req.userId }, 'courseName numberOfHoles holes totalPar color createdBy');
+    const courses = await Course.find(
+      { createdBy: req.userId },
+      'courseName numberOfHoles holes totalPar color createdBy _id'
+    );
     res.setHeader('Content-Type', 'application/json');
     res.json(courses);
   } catch (error) {
