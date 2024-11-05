@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Course from './pages/Course';
 import Stats from './pages/Stats';
 import Setup from './pages/Setup';
+import Game from './pages/Game';
+import Recap from './pages/Recap';
 
 import './App.css';
 
@@ -54,6 +56,9 @@ const App = () => {
       <Route path="/course" element={<Course />} />
       <Route path="/stats" element={<Stats />} />
       <Route path="/setup" element={<Setup />} />
+      <Route path="/game" element={<Game />} />
+      <Route path="/recap" element={<Recap />} />
+
 
     </Routes>
   );
