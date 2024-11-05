@@ -2,21 +2,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const gameSchema = new Schema({
-  courseName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  color: {
-    type: String,
-    required: true
-  },
-  numberOfHoles: {
-    type: Number,
-    required: true
-  },
-  totalPar: {
-    type: Number,
+  course: {
+    type: Schema.Types.ObjectId,
+    ref: 'Course',
     required: true
   },
   date: {
