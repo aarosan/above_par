@@ -10,10 +10,7 @@ const Setup = () => {
     const [playerData, setPlayerData] = useState([]);
     const [selectedPlayers, setSelectedPlayers] = useState([]);
     const [game, setGame] = useState({
-        courseName: course.courseName,
-        color: course.color,
-        numberOfHoles: course.numberOfHoles,
-        totalPar: course.totalPar,
+        course: course._id, 
         date: new Date(),
         players: [],
         scores: [],
@@ -103,7 +100,7 @@ const Setup = () => {
 
     const startGame = async () => {
         console.log('Starting game:', game); // Debugging log
-        navigate('/game', { state: { game } });
+        navigate('/game', { state: { game, course } });
     }
 
     return (
@@ -114,9 +111,9 @@ const Setup = () => {
     
             <div className="player-list">
                 <h3>Choose your Players</h3>
-                <div>
+                <div className="player-name-container">
                     {playerData.map(player => (
-                        <p className="player-names" key={player._id} onClick={() => handleSelectPlayer(player)}>
+                        <p className="player-name" key={player._id} onClick={() => handleSelectPlayer(player)}>
                             {player.name}
                         </p>
                     ))}
@@ -126,13 +123,15 @@ const Setup = () => {
             
             {selectedPlayers.length > 0 && (
             <div className="selected-players">
-                <h3>Selected Players</h3>
+                <h3 className="selected-players-title">Selected Players</h3>
                 <div>
                     {selectedPlayers.map((player, index) => (
-                        <p key={player._id}>
-                            Player {index + 1}: {player.name} 
+                        <div className="player-set">
+                            <p className="chosen-player" key={player._id}>
+                                Player {index + 1}: {player.name} 
+                            </p>
                             <button className="remove-player-button" onClick={() => handleRemovePlayer(player._id)}>Remove</button>
-                        </p>
+                        </div>
                     ))}
                 </div>
 

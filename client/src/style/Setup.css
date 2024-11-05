@@ -47,13 +47,44 @@
     box-sizing: border-box;
 }
 
-.player-names {
+.selected-players-title {
+    margin-bottom: 15px;
+}
+
+.player-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+}
+
+.player-name {
     text-align: center;
     padding: 5px;
     cursor: pointer;
 }
 
-.add-player-button {
+.player-name:hover {
+    text-decoration: underline;
+}
+
+.player-set {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    gap: 10px;
+}
+
+.chosen-player {
+    text-align: center;
+}
+
+.add-player-button, .remove-player-button {
     border-radius: 25px;
     border: 1px solid rgba(0, 135, 5, 0.3);
     background-color: transparent;
@@ -62,27 +93,18 @@
     font-size: 16px;
 }
 
-.add-player-button:hover {
+.add-player-button:hover, .remove-player-button:hover {
     border: 1px solid rgba(0, 135, 5, 0.3);
     background-color: #008705;
     color: white;
     cursor: pointer;
 }
 
-.add-player-button:active {
+.add-player-button:active, .remove-player-button:active {
     border: 1px solid rgba(0, 135, 5, 0.3);
     background-color: rgba(0, 135, 5, 0.3);
     color: black;
     cursor: pointer;
-}
-
-.remove-player-button {
-    border-radius: 25px;
-    border: 1px solid rgba(0, 135, 5, 0.3);
-    background-color: transparent;
-    padding: 10px 25px;
-    margin: 5px;
-    font-size: 16px;
 }
 
 .play-golf-button {
