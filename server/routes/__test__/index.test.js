@@ -171,43 +171,44 @@ describe('Test the authenticated course and game routes', () => {
       
     it('should create a new game with JWT token', async () => {
       const course = await new Course({
-        courseName: 'Test Course',
-        numberOfHoles: 9,
-        holes: [
-            { holeNumber: 1, par: 4 },
-            { holeNumber: 2, par: 4 },
-            { holeNumber: 3, par: 4 },
-            { holeNumber: 4, par: 4 },
-            { holeNumber: 5, par: 4 },
-            { holeNumber: 6, par: 4 },
-            { holeNumber: 7, par: 4 },
-            { holeNumber: 8, par: 4 },
-            { holeNumber: 9, par: 4 },
-        ],
-        totalPar: 36,
-        color: 'Blue',
-        createdBy: userId
+      courseName: 'Test Course',
+      numberOfHoles: 9,
+      holes: [
+        { holeNumber: 1, par: 4 },
+        { holeNumber: 2, par: 4 },
+        { holeNumber: 3, par: 4 },
+        { holeNumber: 4, par: 4 },
+        { holeNumber: 5, par: 4 },
+        { holeNumber: 6, par: 4 },
+        { holeNumber: 7, par: 4 },
+        { holeNumber: 8, par: 4 },
+        { holeNumber: 9, par: 4 },
+      ],
+      totalPar: 36,
+      color: 'Blue',
+      createdBy: userId
       }).save();
 
       const player1 = await new Player({ name: 'Alice', user: userId }).save();
       const player2 = await new Player({ name: 'Bob', user: userId }).save();
-  
+    
       const gameData = {
-        courseName: 'Test Course',
-        color: 'Blue',
-        numberOfHoles: 9,
-        totalPar: 36,
-        date: new Date(),
-        players: [player1._id, player2._id]
+      course: course._id,
+      date: new Date(),
+      players: [player1._id, player2._id],
+      scores: [
+        { player: player1._id, score: [4, 4, 4, 4, 4, 4, 4, 4, 4] },
+        { player: player2._id, score: [4, 4, 4, 4, 4, 4, 4, 4, 4] }
+      ]
       };
-  
+    
       const res = await request(app)
-        .post('/api/users/games')
-        .set('Authorization', `Bearer ${token}`) 
-        .send(gameData);
-  
+      .post('/api/users/games')
+      .set('Authorization', `Bearer ${token}`) 
+      .send(gameData);
+    
       expect(res.statusCode).toBe(201);
-      expect(res.body).toHaveProperty('courseName', gameData.courseName);
+      expect(res.body).toHaveProperty('course', gameData.course.toString());
     });
   
 

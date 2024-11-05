@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cd server && npm test",
     "start": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
     "install": "concurrently \"cd server && npm install\" \"cd client && npm install\"",
     "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm start\"",

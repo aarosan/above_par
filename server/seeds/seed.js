@@ -33,8 +33,8 @@ const seedDB = async () => {
     await user2.save();
 
     // Create players associated with users
-    const player1 = new Player({ name: 'AlicePlayer', user: user1._id });
-    const player2 = new Player({ name: 'BobPlayer', user: user2._id });
+    const player1 = new Player({ name: 'Lucy', user: user1._id });
+    const player2 = new Player({ name: 'Linus', user: user2._id });
     
     await player1.save();
     await player2.save();
@@ -58,15 +58,42 @@ const seedDB = async () => {
       createdBy: user2._id
     });
 
+    const course3 = new Course({
+      courseName: 'Arctic Freeze',
+      numberOfHoles: 9,
+      holes: Array.from({ length: 9 }, (_, i) => ({ holeNumber: i + 1, par: 3 })),
+      totalPar: 27,
+      color: 'Purple',
+      createdBy: user1._id
+    });
+
+    const course4 = new Course({
+      courseName: 'Sunny Fires',
+      numberOfHoles: 9,
+      holes: Array.from({ length: 9 }, (_, i) => ({ holeNumber: i + 1, par: 3 })),
+      totalPar: 27,
+      color: 'Red',
+      createdBy: user1._id
+    });
+
+    const course5 = new Course({
+      courseName: 'Forest River',
+      numberOfHoles: 9,
+      holes: Array.from({ length: 9 }, (_, i) => ({ holeNumber: i + 1, par: 3 })),
+      totalPar: 27,
+      color: 'Blue',
+      createdBy: user1._id
+    });
+
     await course1.save();
     await course2.save();
+    await course3.save();
+    await course4.save();
+    await course5.save();
 
     // Create games associated with courses and players
     const game1 = new Game({
-      courseName: course1.courseName,
-      color: course1.color,
-      numberOfHoles: course1.numberOfHoles,
-      totalPar: course1.totalPar,
+      course: course1._id,
       date: new Date(),
       players: [player1._id],
       scores: [{
@@ -77,10 +104,7 @@ const seedDB = async () => {
     });
 
     const game2 = new Game({
-      courseName: course2.courseName,
-      color: course2.color,
-      numberOfHoles: course2.numberOfHoles,
-      totalPar: course2.totalPar,
+      course: course2._id,
       date: new Date(),
       players: [player2._id],
       scores: [{
@@ -94,7 +118,7 @@ const seedDB = async () => {
     await game2.save();
 
     // Update users to reference courses, games, and players
-    user1.courses.push(course1._id);
+    user1.courses.push(course1._id, course3._id, course4._id, course5._id);
     user1.games.push(game1._id);
     user1.players.push(player1._id);
     await user1.save();
