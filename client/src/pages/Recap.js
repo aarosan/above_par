@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import colors from "../utils/colors";
 import '../style/Recap.css';
 
 const Recap = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [game, setGame] = useState(() => {
         const savedGame = localStorage.getItem('game');
         return savedGame ? JSON.parse(savedGame) : location.state?.game;
@@ -36,13 +37,16 @@ const Recap = () => {
         return winner;
     }
 
+    const viewStats = () => navigate('/stats');
+    const viewHome = () => navigate('/');
+
     return (
         <div className="recap-container">
             <h1 className="winning-title">{findWinner(game.players).name} Wins!</h1>
 
             <div className="nav-buttons">
-                <button className="return-button" onClick={() => window.location.href = '/'}>home</button>
-                <button className="return-button" onClick={() => window.location.href = '/stats'}>stats</button>
+                <button className="return-button" onClick={viewHome}>home</button>
+                <button className="return-button" onClick={viewStats}>stats</button>
             </div>
 
             <div className="player-totals">

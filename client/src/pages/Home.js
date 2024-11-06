@@ -28,7 +28,6 @@ const Home = ({ signOut }) => {
     };
     console.log(course)
 
-
     return (
         <div className="home-container">
             <div className="home-header">
