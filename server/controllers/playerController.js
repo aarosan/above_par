@@ -38,4 +38,19 @@ const addPlayer = async (req, res) => {
     }
 }
 
-module.exports = { getPlayers, addPlayer };
+const getPlayerById = async (req, res) => {
+    console.log('getPlayerById function invoked');
+    try {
+        const player = await Player.findById(req.params.playerId);
+        if (!player) {
+            return res.status(404).json({ error: 'Player not found' });
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.json(player);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+module.exports = { getPlayers, addPlayer, getPlayerById };

@@ -45,4 +45,19 @@ const createCourse = async (req, res) => {
   }
 };
 
-module.exports = { getCourses, createCourse };
+const getCourseById = async (req, res) => {
+  console.log('getCourseById function invoked');
+  try {
+    const course = await Course.findById(req.params.courseId);
+    if (!course) {
+      return res.status(404).json({ error: 'Course not found' });
+    }
+    res.setHeader('Content-Type', 'application/json');
+    res.json(course);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+module.exports = { getCourses, createCourse, getCourseById };

@@ -24,21 +24,27 @@ const createGame = async (req, res) => {
   console.log('createGame function invoked');
   try {
     const { course, players, date, scores, createdBy } = req.body;
-    console.log(course);
+    console.log('createGame backend receiver', req.body);
+    console.log(scores);
     
     const currentCourse = await Course.findById(course);
     if (!currentCourse) return res.status(400).json({ error: 'Invalid course' });
 
+    const formattedScores = scores.map(score => ({
+      player: score.player,
+      score: score.scores 
+    }));
 
     const newGame = new Game({
       course: course,
       date: date || new Date(),
       players,
-      scores,
+      scores: formattedScores,
       createdBy: createdBy || req.userId 
     });
 
     const savedGame = await newGame.save();
+    console.log('savedGame:', savedGame);
 
     await User.findByIdAndUpdate(
       req.userId,
