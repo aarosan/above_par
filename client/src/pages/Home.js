@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import colors from '../utils/colors';
 import { isTokenExpired } from '../utils/jwtUtils';
 import { useCourses } from '../hooks/useCourses';
 import CourseButton from '../components/CourseButton';
 
-const apiUrl = process.env.REACT_APP_HEROKU_URL || 'http://localhost:5000';
-
 const Home = ({ signOut }) => {
-    const { courses, error, loading, setCourses } = useCourses();
-    const [course, setCourse] = useState(null);
+    const { courses } = useCourses();
+    const [setCourse] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
