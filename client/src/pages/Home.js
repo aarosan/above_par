@@ -8,7 +8,7 @@ import CourseButton from '../components/CourseButton';
 
 const Home = ({ signOut }) => {
     const { courses } = useCourses();
-    const [setCourse] = useState(null);
+    const [course, setCourse] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,6 +26,8 @@ const Home = ({ signOut }) => {
         setCourse(course);
         navigate('/setup', { state: { course } });
     };
+    console.log(course)
+
 
     return (
         <div className="home-container">
