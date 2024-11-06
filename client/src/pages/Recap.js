@@ -6,10 +6,7 @@ import '../style/Recap.css';
 const Recap = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const [game, setGame] = useState(() => {
-        const savedGame = localStorage.getItem('game');
-        return savedGame ? JSON.parse(savedGame) : location.state?.game;
-    });
+    const [game, setGame] = useState(location.state?.game);
     const course = location.state?.course;
 
     useEffect(() => {
