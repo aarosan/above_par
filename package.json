@@ -17,6 +17,8 @@
     "concurrently": "^9.0.1"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^2.4.3",
+    "chart.js": "^4.4.6",
+    "react-chartjs-2": "^5.2.0"
   }
 }
