@@ -31,7 +31,7 @@ router.get('/stats', (req, res) => {
     res.send('Stats!');
 });
 
-router.get('/getalluserdata', getAllUserData);
-router.get('/getgamesandscores', getGamesAndScores);
+router.get('/getAllUserData', getAllUserData);
+router.get('/getGamesandScores', getGamesAndScores);
 
 module.exports = router;
