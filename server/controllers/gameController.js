@@ -4,28 +4,22 @@ const Course = require('../models/Course');
 const User = require('../models/User');
 
 const getGames = async (req, res) => {
-  console.log('getGames function invoked');
-  console.log('req.userId:', req.userId);
   try {
     const games = await Game.find({ createdBy: req.userId })
 
-    console.log('games:', games);
 
     res.setHeader('Content-Type', 'application/json');
     res.json(games);
   } catch (error) {
-    console.log('Error:', error);
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
 const createGame = async (req, res) => {
-  console.log('createGame function invoked');
   try {
     const { course, players, date, scores, createdBy } = req.body;
-    console.log('createGame backend receiver', req.body);
-    console.log(scores);
+
     
     const currentCourse = await Course.findById(course);
     if (!currentCourse) return res.status(400).json({ error: 'Invalid course' });
@@ -44,7 +38,6 @@ const createGame = async (req, res) => {
     });
 
     const savedGame = await newGame.save();
-    console.log('savedGame:', savedGame);
 
     await User.findByIdAndUpdate(
       req.userId,

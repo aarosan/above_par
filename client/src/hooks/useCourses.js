@@ -23,7 +23,6 @@ export const useCourses = () => {
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
                 const courseData = await response.json();
-                console.log('courseData', courseData);
                 setCourses(courseData);
                 setError(null);
             } catch (error) {

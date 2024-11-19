@@ -2,7 +2,6 @@ const Player = require('../models/Player');
 const User = require('../models/User');
 
 const getPlayers = async (req, res) => {
-    console.log('getPlayers function invoked');
     try {
         const players = await Player.find({ user: req.userId }, 'name');
         res.setHeader('Content-Type', 'application/json');
@@ -14,7 +13,6 @@ const getPlayers = async (req, res) => {
 };
 
 const addPlayer = async (req, res) => {
-    console.log('addPlayer function invoked');
     try {
         const { name } = req.body;
 
@@ -39,7 +37,6 @@ const addPlayer = async (req, res) => {
 }
 
 const getPlayerById = async (req, res) => {
-    console.log('getPlayerById function invoked');
     try {
         const player = await Player.findById(req.params.playerId);
         if (!player) {

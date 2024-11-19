@@ -26,7 +26,6 @@ const Home = ({ signOut }) => {
         setCourse(course);
         navigate('/setup', { state: { course } });
     };
-    console.log(course)
 
     return (
         <div className="home-container">

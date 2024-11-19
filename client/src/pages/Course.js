@@ -57,8 +57,7 @@ const Course = () => {
 
     // Post Course to API
     const postCourse = async () => {
-        console.log('Post Course Activated');
-        console.log('New Course:', newCourse);
+
         try {
             const token = localStorage.getItem("token");
             const response = await fetch(`${apiUrl}/api/users/courses`, {
@@ -73,7 +72,7 @@ const Course = () => {
             if (!response.ok) throw new Error("Failed to create course");
 
             const data = await response.json();
-            console.log('Course added Successfully', data);
+            //console.log('Course added Successfully', data);
             navigate("/");
         } catch {
             console.error("Failed to create course");
@@ -83,8 +82,7 @@ const Course = () => {
     // Saves selected color and createdBy from local storage
     const handleSelectColor = (colorName) => {
         const userId = localStorage.getItem("userId"); 
-        console.log('User ID:', userId);
-        console.log(colorName);
+
     
         // Update the state with color and createdBy
         setNewCourse((prev) => {
@@ -93,8 +91,8 @@ const Course = () => {
                 color: colorName, 
                 createdBy: userId 
             };
-            console.log("Updated Course:", updatedCourse); // Log the updated course state
-            return updatedCourse; // Return the updated state
+
+            return updatedCourse;
         });
     };
 
@@ -140,7 +138,7 @@ const Course = () => {
                 placeholder="number of holes"
                 value={newCourse.numberOfHoles || ""}
                 onChange={handleInputChange}
-                onBlur={() => console.log("Number of Holes Saved:", newCourse.numberOfHoles)}
+                // onBlur={() => //console.log("Number of Holes Saved:", newCourse.numberOfHoles)}
             />
 
 

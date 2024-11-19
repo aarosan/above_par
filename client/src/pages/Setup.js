@@ -77,15 +77,13 @@ const Setup = () => {
     };
     
     const handleRemovePlayer = (playerId) => {
-        console.log('Removing player with ID:', playerId); // Debugging log
         // Find the player to remove by ID
         const removedPlayer = selectedPlayers.find(player => player._id === playerId);
-        console.log('Removed player:', removedPlayer); // Debugging log
     
         // Ensure only the specified player is removed
         setSelectedPlayers(prevSelectedPlayers => {
             const newSelectedPlayers = prevSelectedPlayers.filter(player => player._id !== playerId);
-            console.log('Updated selected players:', newSelectedPlayers); // Debugging log
+
             return newSelectedPlayers;
         });
     
@@ -95,11 +93,9 @@ const Setup = () => {
             scores: prevGame.scores.filter(score => score.player !== playerId)
         }));
 
-        console.log('Updated game:', game); // Debugging log
     };
 
     const startGame = async () => {
-        console.log('Starting game:', game); // Debugging log
         navigate('/game', { state: { game, course } });
     }
 

@@ -11,11 +11,7 @@ const ParInput = ({ game, course }) => {
         game.players.map(player => ({ name: player.name, scores: Array(course.holes.length).fill(null) }))
     );
 
-    console.log('Game:', game);
-    console.log('Course:', course);
-
     const handleScoreChange = (playerIndex, scoreIndex, value) => {
-        console.log('Player:', playerIndex, 'Score:', scoreIndex, 'Value:', value);
         const newScores = [...scores];
         newScores[playerIndex].scores[scoreIndex] = value;
         setScores(newScores);
@@ -50,13 +46,11 @@ const ParInput = ({ game, course }) => {
             }))
         };
         // Make a POST request with updatedGame data
-        console.log('Submitting game data:', updatedGame);
 
         updatedGame.players.forEach((player, index) => {
-            console.log(`Player ${index + 1} - ${player.name}: Scores -`, player.scores);
+            //console.log(`Player ${index + 1} - ${player.name}: Scores -`, player.scores);
         });
 
-        console.log('Game Post Request Activated');
         try {
             const token = localStorage.getItem('token');
             const response = await fetch(`${apiUrl}/api/users/games`, {
@@ -71,7 +65,6 @@ const ParInput = ({ game, course }) => {
             if (!response.ok) throw new Error('Failed to create game');
 
             const data = await response.json();
-            console.log('Game added Successfully', data);
             navigate('/recap', { state: { game: updatedGame, course } });
         } catch {
             console.error('Failed to create game');

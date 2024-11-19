@@ -6,7 +6,6 @@ const ColorGrid = ({ onSelectColor }) => {
     const [selectedColor, setSelectedColor] = useState("");
 
     const handleColorClick = (colorName) => {
-        console.log("ColorGrid handleColorClick colorName:", colorName);
         setSelectedColor(colorName);    
         onSelectColor(colorName); 
 
