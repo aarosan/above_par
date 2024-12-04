@@ -9,8 +9,6 @@ Welcome to Above Par! This project is a full-stack web application built using t
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
-- [Frontend Structure](#frontend-structure)
-- [Backend Structure](#backend-structure)
 - [License](#license)
 
 ## Features
@@ -23,6 +21,7 @@ Detailed Course Information: Each course includes details like name, number of h
 Responsive Design: A user-friendly interface that works on both desktop and mobile devices.
 
 Statistics: View stats for each course, enhancing user engagement.
+
 User-specific Data: Each user can only view and manage their own courses.
 
 ## Technologies
@@ -33,6 +32,7 @@ Frontend:
 
 - React: A JavaScript library for building user interfaces.
 - Styled-Components: For writing CSS in JavaScript.
+- Chart.js: A JavaScript library for creating charts and graphs, used for visualizing course statistics.
 
 Backend:
 
@@ -91,13 +91,12 @@ npm run start
 ## API Endpoints 
 
 ### Authentication
-
 - **POST** `/api/user/signup`: Register a new user
 - **POST** `/api/user/login`: Log in an existing user
 
 ### Course
-
 - **GET** `api/users/courses`: Get all courses from a user
+- **GET** `api/users/courses/:courseId`: Get a specific course from a user by the courseId
 - **POST** `api/users/courses`: Add a course to the user's account
 
 ### Game
@@ -106,74 +105,12 @@ npm run start
 
 ### Player
 - **GET** `api/users/players`: Get all players from a user
+- **GET** `api/users/players/:playerId`: Get a specific player from a user by the playerId
 - **POST** `api/users/players`: Add a player to the user's account
 
 ### Stats
-Coming soon!
+- **GET** `api/users/getAllUserData`: Get all data saved for the logged in user
 
-### Frontend Structure
-```
-client/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── ColorGrid.js
-│   │   └── CourseButton.js
-│   ├── hooks/
-│   │   └── useCourses.js
-│   ├── pages/
-│   │   ├── Course.js
-│   │   ├── Game.js
-│   │   ├── Home.js
-│   │   ├── Login.js
-│   │   ├── Setup.js
-│   │   └── Signup.js
-│   ├── style/
-│   │   ├── ColorGrid.css
-│   │   ├── Course.js
-│   │   ├── Game.js
-│   │   ├── Home.js
-│   │   ├── Login.js
-│   │   └── Setup.js
-│   └── utils/
-│       ├── colors.js
-│       ├── hexToRgba.js
-│       └── jwtUtils.js
-├── App.js
-├── index.js
-└── ...
-```
-
-## Backend Structure
-```
-server/
-├── config/
-│   └── connection.js
-├── controllers/
-│   ├── courseController.js
-│   ├── gameController.js
-│   ├── playerController.js
-│   ├── statsController.js
-│   └── userController.js
-├── middleware/
-│   └── authMiddleware.js
-├── models/
-│   ├── Course.js
-│   ├── Game.js
-│   ├── index.js
-│   ├── Player.js
-│   └── User.js
-├── routes/
-│   ├── __test__/ 
-│   │   └── index.test.js
-│   ├── api/ 
-│   │   ├── index.js
-│   │   └── userRoutes.js
-│   └── index.js
-├── seeds/
-│   └── seed.js
-└── server.js
-```
 
 ## License
 
