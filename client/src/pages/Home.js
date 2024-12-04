@@ -11,6 +11,8 @@ const Home = ({ signOut }) => {
     const [course, setCourse] = useState(null);
     const navigate = useNavigate();
 
+    console.log('Home', course);
+
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token || isTokenExpired(token)) {

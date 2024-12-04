@@ -65,6 +65,7 @@ const ParInput = ({ game, course }) => {
             if (!response.ok) throw new Error('Failed to create game');
 
             const data = await response.json();
+            console.log('Game created:', data);
             navigate('/recap', { state: { game: updatedGame, course } });
         } catch {
             console.error('Failed to create game');

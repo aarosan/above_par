@@ -79,6 +79,8 @@ const Setup = () => {
     const handleRemovePlayer = (playerId) => {
         // Find the player to remove by ID
         const removedPlayer = selectedPlayers.find(player => player._id === playerId);
+
+        console.log('Removing player:', removedPlayer);
     
         // Ensure only the specified player is removed
         setSelectedPlayers(prevSelectedPlayers => {

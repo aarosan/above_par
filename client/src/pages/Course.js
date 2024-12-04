@@ -72,7 +72,7 @@ const Course = () => {
             if (!response.ok) throw new Error("Failed to create course");
 
             const data = await response.json();
-            //console.log('Course added Successfully', data);
+            console.log('Course added Successfully', data);
             navigate("/");
         } catch {
             console.error("Failed to create course");
