@@ -34,7 +34,8 @@ input {
     border: 1px solid rgb(116, 0, 135, .3);
     background-color: transparent;
     padding: 10px 25px;
-    font-size: 16px;;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .play-golf:hover {
@@ -71,6 +72,7 @@ input {
 .signup-link {
     color: rgb(0, 0, 0, .7);
     text-decoration: underline;
+    margin-top: 15px;
 }
 
 .signup-buttons {
