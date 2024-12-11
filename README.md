@@ -24,6 +24,33 @@ Statistics: View stats for each course, enhancing user engagement.
 
 User-specific Data: Each user can only view and manage their own courses.
 
+```mermaid
+graph TD
+    A[User] -->|Interacts<br>with UI| B[Home Page Frontend]
+    B -->|Login/Signup Page| C[Authentication REST API]
+    C --> D{Authentication}
+    D -->|Invalid User| F[Error Message]
+    D -->|Valid User| E[JWT Token Generated]
+
+    E -->|Token Sent| B
+
+
+    B -->|Add Course Page| G[Course REST API]
+    G --> H[(MongoDB)]
+
+
+    B -->|Stats Page| K[Stats REST API]
+    K --> H[(MongoDB)]
+
+    B -->|Setup Page| L[Course and Player REST API]
+    L -->|Game Page| M[Game REST API]
+    M --> H[(MongoDB)]
+
+    H --> O[User Dashboard: Show<br>Updated Data]
+
+    O -->|Display updated data| B
+```
+
 ## Technologies
 
 This application is built with the following technologies:
