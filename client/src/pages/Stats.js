@@ -4,6 +4,7 @@ import { useUserData } from '../hooks/useUserData';
 import CourseStats from '../components/courseStats/CourseStats';
 import GameStats from "../components/gameStats/GameStats";
 import PlayerStats from "../components/playerStats/PlayerStats";
+import NavBar from "../components/NavBar";
 
 const apiUrl = process.env.REACT_APP_HEROKU_URL || 'http://localhost:5000';
 
@@ -114,6 +115,7 @@ const Stats = () => {
 
     return (
         <div className="stats-container">
+            <NavBar />
             <h1>Stats Page</h1>
             <p className="show-games" onClick={() => setShowGames(!showGames)}>Toggle Games</p>
             <div className="stats-buttons">

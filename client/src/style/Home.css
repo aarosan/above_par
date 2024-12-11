@@ -54,7 +54,7 @@
     align-items: center;
 }
 
-.add-course-button, .view-stats-button, .sign-out-button {
+.add-course-button, .view-stats-button, .sign-out-button, .nav-button {
     border-radius: 25px;
     border: 1px solid rgb(0, 135, 5, .3);
     background-color: transparent;
@@ -64,14 +64,14 @@
     color: rgb(0, 0, 0, .7);
 }
 
-.add-course-button:hover, .view-stats-button:hover, .sign-out-button:hover {
+.add-course-button:hover, .view-stats-button:hover, .sign-out-button:hover, .nav-button:hover {
     border: 1px solid rgb(0, 135, 5, .3);
     background-color: #008705;
     color: white;
     cursor: pointer;
 }
 
-.add-course-button:active, .view-stats-button:active, .sign-out-button:active {
+.add-course-button:active, .view-stats-button:active, .sign-out-button:active, .nav-button:active {
     background-color: rgba(184, 255, 186, 0.3);
     color: black;
     cursor: pointer;

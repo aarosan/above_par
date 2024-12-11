@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../style/Course.css";
 import { useNavigate } from "react-router-dom";
 import ColorGrid from "../components/ColorGrid";
+import NavBar from "../components/NavBar";
 
 const apiUrl = process.env.REACT_APP_HEROKU_URL || 'http://localhost:5000';
 
@@ -116,6 +117,7 @@ const Course = () => {
 
     return (
         <div className="course-container">
+            <NavBar />
             <h1 className="course-title">Add Course</h1>
 
             {/* Course Name Input */}

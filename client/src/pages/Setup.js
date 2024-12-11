@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import "../style/Setup.css";
+import NavBar from "../components/NavBar";
 
 const apiUrl = process.env.REACT_APP_HEROKU_URL || 'http://localhost:5000';
 
@@ -103,6 +104,7 @@ const Setup = () => {
 
     return (
         <div className="setup-container">
+            <NavBar />
             <h1 className="setup-title">Game setup</h1>
             <p className="setup-course">{game.courseName}</p>
             <Link to="/" className="setup-back">Change Course</Link>
