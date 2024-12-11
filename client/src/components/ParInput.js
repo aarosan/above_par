@@ -88,6 +88,7 @@ const ParInput = ({ game, course }) => {
                                 key={score}
                                 onClick={() => handleScoreChange(playerIndex, currentHole - 1, score)}
                                 className={`par-value-button ${scores[playerIndex].scores[currentHole - 1] === score ? 'active' : ''}`}
+                                style={{ textAlign: 'center' }}
                             >
                                 {score}
                             </button>

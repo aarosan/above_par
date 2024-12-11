@@ -31,6 +31,7 @@
     background-color: transparent;
     padding: 10px 25px;
     font-size: 16px;
+    color: black;
 }
 
 .return-button:hover {
@@ -87,7 +88,6 @@
 .hole-information {
     display: flex;
     flex-direction: column;
-    width: 40%;
     border: 1px solid rgb(0, 135, 5, .3);
     border-radius: 15px;
     padding: 10px;
