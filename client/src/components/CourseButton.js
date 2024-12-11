@@ -7,6 +7,7 @@ const CourseButton = styled.button`
     background-color: transparent;
     padding: 10px 25px;
     font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
     
     &:hover {
         border: 2px solid ${({ color }) => color.dark};
@@ -18,7 +19,7 @@ const CourseButton = styled.button`
     &:active {
         border: 2px solid ${({ color }) => color.light};
         background-color: ${({ color }) => hexToRgba(color.dark, 0.3)};
-        color: black;
+        color: rgba(0, 0, 0, 0.7);
         cursor: pointer;
     }
 `;

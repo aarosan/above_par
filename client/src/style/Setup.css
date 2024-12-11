@@ -91,6 +91,7 @@
     padding: 10px 25px;
     margin: 5px;
     font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .add-player-button:hover, .remove-player-button:hover {
@@ -114,6 +115,7 @@
     padding: 10px 25px;
     margin-top: 20px;
     font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .play-golf-button:hover {

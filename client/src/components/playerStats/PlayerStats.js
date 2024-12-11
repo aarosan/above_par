@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { VertBarBestWorstHole } from './VertBarBestWorstHole';
 import { StackedBarAvgHole } from './StackedBarAvgHole';
 import { LineGrowthTotalByGame } from './LineGrowthTotalByGame';
+import '../../style/Stats.css';
 
 const apiUrl = process.env.REACT_APP_HEROKU_URL || 'http://localhost:5000';
 

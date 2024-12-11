@@ -88,6 +88,7 @@
     padding: 10px 25px;
     margin: 5px;
     font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .parInput-nav-buttons:hover {

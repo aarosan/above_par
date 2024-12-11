@@ -57,6 +57,7 @@
     padding: 10px 25px;
     margin: 5px;
     font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
 }
 .save-course-button:hover {
     border: 1px solid rgba(0, 135, 5, 0.3);
